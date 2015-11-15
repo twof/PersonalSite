@@ -1,0 +1,42 @@
+header{
+  text-align: center;
+  background-color: #C99D9D;
+  height: 100%;
+  width: 100%;
+}
+nav{
+  background-color: #C99D9D;
+  padding: 1em;
+}
+.linkButtons{
+  /*display: block;*/
+  width: 115px;
+  height: 25px;
+  background: #4E9CAF;
+  padding: .5em;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  margin: 3%;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+a:active {
+    text-decoration: none;
+    background: #428495;
+}
+body{
+  text-align:center;
+  background-color:#F8F8FF;
+}
