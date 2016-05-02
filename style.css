@@ -13,6 +13,7 @@ html{
   background-color: #EEEEEE;
 }
 header{
+  font-family: Helvetica;
   position: fixed;
   top:0px;
   left: 0px;
@@ -21,7 +22,7 @@ header{
   line-height: .6;
   width: 100%;
   height: var(--header-hight);
-  box-shadow: 0px 1px 1px #888888;
+  box-shadow: 0px 2px 2px #888888;
 }
 nav{
   position: absolute;
@@ -32,6 +33,7 @@ nav{
   left: 1em;
 }
 body{
+  font-family: Helvetica;
   margin-top: calc(var(--header-hight) + .3em);
   text-align:center;
   background-color:inherit;
@@ -40,6 +42,8 @@ body{
   margin-right: auto;
   max-width: 40em;
   font-size: 18px;
+  padding-left: 2em;
+  padding-right: 2em;
 
 }
 .linkButtons{
