@@ -1,16 +1,24 @@
+:root {
+  --header-hight: 6.7em;
+}
 header{
-  top:0;
+  position: fixed;
+  top:0px;
+  left: 0px;
   background-color: #C99D9D;
   width: 100%;
-  left: 0px;
-  position: fixed;
-  height: 6.3em;
+  height: var(--header-hight);
 }
 nav{
   position: absolute;
-  top: 4.3em;
+  top: calc(var(--header-hight) - 2em);
   right: 1em;
   left: 1em;
+}
+body{
+  margin-top: calc(var(--header-hight) + .3em);
+  text-align:center;
+  background-color:#F8F8FF;
 }
 .linkButtons{
   /*display: block;*/
@@ -40,7 +48,4 @@ a:active {
     text-decoration: none;
     background: #428495;
 }
-body{
-  text-align:center;
-  background-color:#F8F8FF;
-}
+
