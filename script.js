@@ -4,7 +4,7 @@ function domloaded(){
   var ctx = c.getContext("2d");
   ctx.fillStyle = "#FF0000";
   ctx.font = "30px Arial";
-  
+
   class Ball{
     constructor(height, width){
       this.height = height;
@@ -16,6 +16,22 @@ function domloaded(){
     setPos(posX, posY){
       this.posX = posX;
       this.posY = posY;
+    }
+
+    getPosX(){
+      return this.posX;
+    }
+
+    getPosY(){
+      return this.posY;
+    }
+
+    getHeight(){
+      return this.height;
+    }
+
+    getWidth(){
+      return this.width;
     }
   }
 
@@ -31,6 +47,22 @@ function domloaded(){
       this.posX = posX;
       this.posY = posY;
     }
+
+    getPosX(){
+      return this.posX;
+    }
+
+    getPosY(){
+      return this.posY;
+    }
+
+    getHeight(){
+      return this.height;
+    }
+
+    getWidth(){
+      return this.width;
+    }
   }
 
   var ball = new Ball(50, 50);
@@ -40,25 +72,26 @@ function domloaded(){
   var map = [];
   //window.ballAnimation();
   document.onkeydown = document.onkeyup = interpretKeyPress;
+
   function interpretKeyPress(e) {
     e = e || event; // to deal with IE
     e.preventDefault();
     map[e.keyCode] = e.type == 'keydown';
     if (map[87]) {
-      if (paddleBPosY >= 0) {
-        paddleBPosY-=2;
+      if (paddleB.getPosY() >= 0) {
+        paddleB.setPos(paddleB.getPosX(), paddleB.getPosY()-2);
       }
     }if (map[38]) {
-      if (paddleAPosY >= 0) {
-        paddleAPosY-=2;
+      if (paddleA.getPosY() >= 0) {
+        paddleA.setPos(paddleA.getPosX(), paddleA.getPosY()-2);
       }
     }if (map[83]) {
-      if (paddleBPosY+paddleBHeight <= c.height) {
-        paddleBPosY+=2;
+      if (paddleB.getPosY()+paddleB.getHeight() <= c.height) {
+        paddleB.setPos(paddleB.getPosX(), paddleB.getPosY()+2);
       }
     }if (map[40]) {
-      if (paddleAPosY+paddleAHeight <= c.height){
-        paddleAPosY+=2;
+      if (paddleA.getPosY()+paddleA.getHeight() <= c.height){
+        paddleA.setPos(paddleA.getPosX(), paddleA.getPosY()+2);
       }
     }
     redraw();
@@ -66,39 +99,42 @@ function domloaded(){
 
 
   var ballAnimation = function(angle, direction){
-    if (ballPosX+ballWidth >= c.width) {
+
+    if (ball.getPosX()+ball.getWidth() >= c.width) {
       ctx.fillText("Left Wins!",250 ,250);
       return;
-    }else if (ballPosX <= 0) {
+    }else if (ball.getPosX() <= 0) {
       ctx.fillText("Right Wins",250 ,250);
       return;
-    }else if (ballPosX+ballWidth >= paddleBPosX && ballPosY <= paddleBPosY+paddleBHeight && ballPosY+ballHeight >= paddleBPosY) {
-      angle = ((ballPosY+ballHeight)/2)/((paddleBPosY+paddleBHeight)/2);
+    }else if (ball.getPosX()+ball.getWidth() >= paddleB.getPosX() && ball.getPosY() <= paddleB.getPosY()+paddleB.getHeight() && ball.getPosY()+ball.getHeight() >= paddleB.getPosY()) {
+      angle = ((ball.getPosY()+ball.getHeight())/2)/((paddleB.getPosY()+paddleB.getHeight())/2);
 
-      if ((ballPosY+ballHeight)/2 < (paddleBPosY+paddleBHeight)/2) {
+      if ((ball.getPosY()+ball.getHeight())/2 < (paddleB.getPosY()+paddleB.getHeight())/2) {
         angle *= -1;
       }
+
       direction = "Left";
-    }else if (ballPosX <= paddleAPosX+paddleAWidth && ballPosY <= paddleAPosY+paddleAHeight && ballPosY+ballHeight >= paddleAPosY) {
-      angle = ((ballPosY+ballHeight)/2)/((paddleAPosY+paddleAHeight)/2);
+    }else if (ball.getPosX() <= paddleA.getPosX()+paddleA.getWidth() && ball.getPosY() <= paddleA.getPosY()+paddleA.getHeight() && ball.getPosY()+ball.getHeight() >= paddleA.getPosY()) {
+      angle = ((ball.getPosY()+ball.getHeight())/2)/((paddleA.getPosY()+paddleA.getHeight())/2);
 
-      if ((ballPosY+ballHeight)/2 < (paddleAPosY+paddleAHeight)/2) {
+      if ((ball.getPosY+ball.getHeight())/2 < (paddleA.getPosY()+paddleA.getHeight())/2) {
         angle *= -1;
       }
+
       direction = "Right";
-    }else if (ballPosY+ballHeight >= c.height) {
+    }else if (ball.getPosY()+ball.getHeight() >= c.height) {
       angle-=0.9;
-    }else if (ballPosY <= 0) {
+    }else if (ball.getPosY() <= 0) {
       angle+=0.9;
     }
 
     if(direction == "Right"){
-      ballPosX+=1;
+      ball.setPos(ball.getPosX()+1, ball.getPosY());
     }else {
-      ballPosX-=1;
+      ball.setPos(ball.getPosX()-1, ball.getPosY());
     }
 
-    ballPosY+=angle;
+    ball.setPos(ball.getPosX(), ball.getPosY()+angle);
     redraw();
     setTimeout(ballAnimation, 25, angle, direction);
   };
@@ -108,11 +144,11 @@ function domloaded(){
     //clear canvas
     ctx.clearRect(0, 0, c.width, c.height);
     //draw ball
-    ctx.fillRect(ballPosX, ballPosY, ballWidth, ballHeight);
+    ctx.fillRect(ball.getPosX(), ball.getPosY(), ball.getWidth(), ball.getHeight());
     //draw paddleA
-    ctx.fillRect(paddleAPosX, paddleAPosY, paddleAWidth, paddleAHeight);
+    ctx.fillRect(paddleA.getPosX(), paddleA.getPosY(), paddleA.getWidth(), paddleA.getHeight());
     //draw paddleB
-    ctx.fillRect(paddleBPosX, paddleBPosY, paddleBWidth, paddleBHeight);
+    ctx.fillRect(paddleB.getPosX(), paddleB.getPosY(), paddleB.getWidth(), paddleB.getHeight());
   };
 
   ballAnimation(0, "Right");
