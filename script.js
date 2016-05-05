@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded',domloaded,false);
 function domloaded(){
   var c = document.getElementById("animationCanvas");
   var ctx = c.getContext("2d");
-
+  ctx.fillStyle = "#FF0000";
+  ctx.font = "30px Arial";
+  
   class Ball{
     constructor(height, width){
       this.height = height;
@@ -31,16 +33,9 @@ function domloaded(){
     }
   }
 
-  ctx.fillStyle = "#FF0000";
-  ctx.font = "30px Arial";
-
-  paddleAPosX = 0;
-  paddleAPosY = c.height/2;
-  paddleAWidth = paddleBWidth = 30;
-  paddleAHeight = paddleBHeight = 100;
-
-  paddleBPosX = c.width - paddleBWidth;
-  paddleBPosY = c.height/2;
+  var ball = new Ball(50, 50);
+  var paddleA = new Paddle(100, 30, 0, c.height/2);
+  var paddleB = new Paddle(100, 30, c.width - 30, c.height/2);
 
   var map = [];
   //window.ballAnimation();
