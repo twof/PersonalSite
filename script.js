@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded',domloaded,false);
 function domloaded(){
   var c = document.getElementById("animationCanvas");
   var ctx = c.getContext("2d");
+
   class Ball{
     constructor(height, width){
       this.height = height;
@@ -9,9 +10,27 @@ function domloaded(){
       this.posX = c.width/2;
       this.posY = c.height/2;
     }
+
+    setPos(posX, posY){
+      this.posX = posX;
+      this.posY = posY;
+    }
   }
-  var paddleAPosX, paddleAPosY, paddleAWidth, paddleAHeight;
-  var paddleBPosX, paddleBPosY, paddleBWidth, paddleBHeight;
+
+  class Paddle{
+    constructor(height, width, posX, posY){
+      this.height = height;
+      this.width = width;
+      this.posX = posX;
+      this.posY = posY;
+    }
+
+    setPos(posX, posY){
+      this.posX = posX;
+      this.posY = posY;
+    }
+  }
+
   ctx.fillStyle = "#FF0000";
   ctx.font = "30px Arial";
 
