@@ -74,9 +74,6 @@ function domloaded(){
   document.onkeydown = document.onkeyup = interpretKeyPress;
 
   function interpretKeyPress(e) {
-    e = e || event; // to deal with IE
-    e.preventDefault();
-    map[e.keyCode] = e.type == 'keydown';
     if (map[87]) {
       if (paddleB.getPosY() >= 0) {
         paddleB.setPos(paddleB.getPosX(), paddleB.getPosY()-2);
@@ -158,4 +155,11 @@ function domloaded(){
   };
 
   ballAnimation(0, "Right");
+
+  document.body.addEventListener("keydown", function (e) {
+    map[e.keyCode] = true;
+  });
+  document.body.addEventListener("keyup", function (e) {
+    map[e.keyCode] = false;
+  });
 }
