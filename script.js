@@ -97,50 +97,56 @@ function domloaded(){
     redraw();
   }
 
-
+  
   var ballAnimation = function(angle, direction){
+    var id = setInterval(movement, 20);
+    console.log('beginning of the ball animation function');
+    function movement(){
+      if (ball.getPosX()+ball.getWidth() >= c.width) {
+        ctx.fillText("Left Wins!",250 ,250);
+        clearInterval(id);
+        return;
+      }else if (ball.getPosX() <= 0) {
+        ctx.fillText("Right Wins",250 ,250);
+        clearInterval(id);
+        return;
+      }else if (ball.getPosX()+ball.getWidth() >= paddleB.getPosX() && ball.getPosY() <= paddleB.getPosY()+paddleB.getHeight() && ball.getPosY()+ball.getHeight() >= paddleB.getPosY()) {
+        angle = ((ball.getPosY()+ball.getHeight())/2)/((paddleB.getPosY()+paddleB.getHeight())/2);
 
-    if (ball.getPosX()+ball.getWidth() >= c.width) {
-      ctx.fillText("Left Wins!",250 ,250);
-      return;
-    }else if (ball.getPosX() <= 0) {
-      ctx.fillText("Right Wins",250 ,250);
-      return;
-    }else if (ball.getPosX()+ball.getWidth() >= paddleB.getPosX() && ball.getPosY() <= paddleB.getPosY()+paddleB.getHeight() && ball.getPosY()+ball.getHeight() >= paddleB.getPosY()) {
-      angle = ((ball.getPosY()+ball.getHeight())/2)/((paddleB.getPosY()+paddleB.getHeight())/2);
+        if ((ball.getPosY()+ball.getHeight())/2 < (paddleB.getPosY()+paddleB.getHeight())/2) {
+          angle *= -1;
+        }
+        console.log('direction set left');
+        direction = "Left";
+      }else if (ball.getPosX() <= paddleA.getPosX()+paddleA.getWidth() && ball.getPosY() <= paddleA.getPosY()+paddleA.getHeight() && ball.getPosY()+ball.getHeight() >= paddleA.getPosY()) {
+        angle = ((ball.getPosY()+ball.getHeight())/2)/((paddleA.getPosY()+paddleA.getHeight())/2);
 
-      if ((ball.getPosY()+ball.getHeight())/2 < (paddleB.getPosY()+paddleB.getHeight())/2) {
-        angle *= -1;
+        if ((ball.getPosY+ball.getHeight())/2 < (paddleA.getPosY()+paddleA.getHeight())/2) {
+          angle *= -1;
+        }
+        console.log('direction set right');
+        direction = "Right";
+      }else if (ball.getPosY()+ball.getHeight() >= c.height) {
+        angle-=0.9;
+      }else if (ball.getPosY() <= 0) {
+        angle+=0.9;
       }
 
-      direction = "Left";
-    }else if (ball.getPosX() <= paddleA.getPosX()+paddleA.getWidth() && ball.getPosY() <= paddleA.getPosY()+paddleA.getHeight() && ball.getPosY()+ball.getHeight() >= paddleA.getPosY()) {
-      angle = ((ball.getPosY()+ball.getHeight())/2)/((paddleA.getPosY()+paddleA.getHeight())/2);
-
-      if ((ball.getPosY+ball.getHeight())/2 < (paddleA.getPosY()+paddleA.getHeight())/2) {
-        angle *= -1;
+      if(direction == "Right"){
+        ball.setPos(ball.getPosX()+1, ball.getPosY());
+      }else {
+        ball.setPos(ball.getPosX()-1, ball.getPosY());
       }
 
-      direction = "Right";
-    }else if (ball.getPosY()+ball.getHeight() >= c.height) {
-      angle-=0.9;
-    }else if (ball.getPosY() <= 0) {
-      angle+=0.9;
+      ball.setPos(ball.getPosX(), ball.getPosY()+angle);
+      redraw();
     }
-
-    if(direction == "Right"){
-      ball.setPos(ball.getPosX()+1, ball.getPosY());
-    }else {
-      ball.setPos(ball.getPosX()-1, ball.getPosY());
-    }
-
-    ball.setPos(ball.getPosX(), ball.getPosY()+angle);
-    redraw();
-    setTimeout(ballAnimation, 25, angle, direction);
+    console.log('end of the ball animation function');
   };
 
 
   var redraw = function(){
+    console.log('redraw');
     //clear canvas
     ctx.clearRect(0, 0, c.width, c.height);
     //draw ball
