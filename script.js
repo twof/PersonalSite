@@ -11,6 +11,7 @@ function domloaded(){
       this.width = width;
       this.posX = c.width/2;
       this.posY = c.height/2;
+      this.speet = 1;
     }
 
     setPos(posX, posY){
