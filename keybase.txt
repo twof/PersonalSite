@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/twof
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://twof.me
+  * I am twof (https://keybase.io/twof) on keybase.
+  * I have a public key with fingerprint FF39 5F45 A5A4 F682 311A  FE74 4197 8E68 39CF C5EE
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01013bf35c67d145dae1332bcfcb6e5cd7e74904a7bb41f0f7775cc393f9b7b5234c0a",
+            "fingerprint": "ff395f45a5a4f682311afe7441978e6839cfc5ee",
+            "host": "keybase.io",
+            "key_id": "41978e6839cfc5ee",
+            "kid": "01013bf35c67d145dae1332bcfcb6e5cd7e74904a7bb41f0f7775cc393f9b7b5234c0a",
+            "uid": "a80555f903a2ec5457ba6701496b3219",
+            "username": "twof"
+        },
+        "revoke": {
+            "sig_ids": [
+                "052546ab68ccb33134cfd40347bbcc8221590d93efb5a7677762a3a1d2db42ba0f"
+            ]
+        },
+        "service": {
+            "hostname": "twof.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1477691345,
+    "expire_in": 157680000,
+    "prev": "68e8f8eda2678e370551cd7be92e338fbf3adfa9bf101ed737c4974ab5b62fea",
+    "seqno": 12,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.58
+Comment: https://keybase.io/crypto
+
+yMJpAnicrZJtaBRHHMYvL74ksWpNaj+kFLrRqPSUnZ2Znd0jpamU0tiAQqhUjZwz
+szNxyeX2sru5RLy0BJLG0hIILYEWP5kmGBVJpERpFFQsVoL4goLiC9GgQpumtCUE
+LVydDRb80I/dL8MOz//3PDz/ufBKUay04Mrs47r2suqhgslzv7TFPim/eG2/xjxn
+n5bYrzWLhUOkHBGEyWbX0RKaDnQAmYSYm8QBCDtUAAgNxiVnpsDcIYIgW0eUMIaA
+1CUhBHMObShtRhg2IOI61eKadNNNws/4bjpUWCmhjSXCFFMkTcuAAFCpSAjYxBKm
+BW1lgIVQg3u9IJpQ4RgNxCbXU3fqJ7kQ7z/0/3PutgUctXSMsbR1SA3BMcKEUZPo
+ANkmgwawI2Eg/DRtEUodtntS64xrvsh6zSLqNHCbVOBAS+zSdGxgZFJmWpwzCIEy
+kg7SIVJJOLcMA2Bbd2woJMOUmCqXaVBIgWM4DBmM6lLbrdjKLevyBXjU0EvOm1qi
+GjK+F3rcS6nLvWGYSUR5wn2ZSNQuWPLFeJK5aUdtRg1khR+4XlpLAKXkoRvxAFLu
+toqI45royLi+SLqRAhPT0tUX2YisQpqWsKQlHGqYah+QqLaA6pgJ2xAQWlJtgjqS
+2kyqvQiHQMKRTRBlmJmGFFHRgWhNe4ptqJy0STFVZ2katvlC6zx/trE4VlAaW7yo
+MHqysdKSlf8+5LBjSR7XX/yqcs3KrasOjN0d/+CPd89VlQ3+eeTZ8ND3T2/crsmv
+nbr22+j9ym63Sk73bpAj97xL3k8TMtnz+cFU9fL53NT1wfj08g1Dfb9/tq5otKg1
+V18Iun9Yn803/3r349zc6c7LxdNXH5x5u+uvm25f/sPy17/za99vCK/wkVNf99eM
+WsWHSo4fLr+zMdcf5id7hpuybrrh/sTOy+/wVW8Ft7YX/t3ycHO4rWTPzOa1gyuO
+js8s+7b2ZHfmxNzESKq/YtuOmcnXGr07YbxuQn+1HCzq+MKc9emhVOXwlsxUQ+/A
+8S/HjtUefbNx9UfzP4/vXrrz0xU/vvcGHKgo+OfYN12PnuSc9Y3PAdloWpk=
+=+C8s
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/twof
+
+==================================================================
